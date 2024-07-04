@@ -4,7 +4,7 @@ import axios from "axios";
 //   baseURL: "/api",
 // });
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api/",
+  baseURL: "http://localhost:5000/api",
 });
 
 axiosInstance.interceptors.request.use(
