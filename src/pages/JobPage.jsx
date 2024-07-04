@@ -2,7 +2,7 @@
 import { useParams, useLoaderData, Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { toast } from "react-toastify";
-import axios from "axios";
+import axiosInstance from "../services/authInstance";
 
 const JobPage = ({ deleteJob }) => {
   const { id } = useParams();
@@ -138,7 +138,8 @@ const JobPage = ({ deleteJob }) => {
 
 const jobLoader = async ({ params }) => {
   try {
-    const res = await axios.get(`/api/jobs/${params.id}`);
+    // const res = await axios.get(`/api/jobs/${params.id}`);
+    const res = await axiosInstance.get(`/api/jobs/${params.id}`);
     return res.data;
   } catch (error) {
     console.error("Error loading job:", error);
