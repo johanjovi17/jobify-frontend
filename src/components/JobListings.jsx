@@ -59,7 +59,7 @@ const JobListings = ({ isHome }) => {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const apiUrl = isHome ? "/jobs?_limit=3" : "/jobs"; // Adjusted to match the baseURL
+      const apiUrl = isHome ? "api/jobs?_limit=3" : "api/jobs"; // Adjusted to match the baseURL
 
       try {
         const res = await axiosInstance.get(apiUrl);
