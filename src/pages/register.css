@@ -1,0 +1,76 @@
+.auth-container {
+  width: 350px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.auth-container-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container input,
+.auth-container select {
+  margin: 0.8rem 0;
+  font-size: 15px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.auth-container input:focus {
+  border: 2px solid grey;
+  outline: none;
+}
+.auth-container select:focus {
+  outline: none;
+}
+.auth-container select {
+  color: #4338ca;
+  font-weight: bold;
+}
+.auth-container input {
+  color: #333;
+}
+
+.dropdown-option {
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.auth-container button {
+  padding: 0.5rem;
+  background-color: #4338ca;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.auth-container button:hover {
+  background-color: #251bb7;
+}
+
+.link-to-login {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 8px;
+}
+.login-link {
+  color: #4338ca;
+}

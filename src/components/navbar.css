@@ -1,0 +1,13 @@
+.user-btn {
+  display: flex;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.navbar:focus {
+  outline: none;
+}
+/* .navbar-content {
+} */
