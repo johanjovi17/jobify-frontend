@@ -63,7 +63,19 @@ const App = () => {
     createRoutesFromElements(
       <>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Login />} />
+          <Route
+            index
+            element={
+              <>
+                <SignedOut>
+                  <Login />
+                </SignedOut>
+                <SignedIn>
+                  <HomePage />
+                </SignedIn>
+              </>
+            }
+          />
 
           <Route path="/home" element={<HomePage />} />
           <Route path="jobs" element={<JobsPage />} />
