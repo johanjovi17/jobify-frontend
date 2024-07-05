@@ -78,7 +78,19 @@ const App = () => {
           />
 
           <Route path="/home" element={<HomePage />} />
-          <Route path="jobs" element={<JobsPage />} />
+          <Route
+            path="jobs"
+            element={
+              <>
+                <SignedIn>
+                  <JobsPage />
+                </SignedIn>
+                <SignedOut>
+                  <RedirectToSignIn />
+                </SignedOut>
+              </>
+            }
+          />
           <Route
             path="add-job"
             element={
