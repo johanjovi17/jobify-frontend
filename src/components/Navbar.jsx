@@ -11,7 +11,7 @@ const Navbar = () => {
     if (user && user.username === "employer") {
       setIsEmployer(true);
     }
-  }, []);
+  }, [user]);
   const linkClass = ({ isActive }) =>
     isActive
       ? "bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
