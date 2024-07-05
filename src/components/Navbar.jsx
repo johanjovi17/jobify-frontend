@@ -1,10 +1,17 @@
 import { NavLink } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-import { UserButton, SignedIn, SignedOut } from "@clerk/clerk-react";
+import { UserButton, SignedIn, SignedOut,useUser } from "@clerk/clerk-react";
 import "./navbar.css";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const isAdmin = localStorage.getItem("isEmployer");
+  const { user } = useUser();
+  const [isEmployer, setIsEmployer] = useState(false);
+  useEffect(() => {
+    if (user && user.username === "employer") {
+      setIsEmployer(true);
+    }
+  }, []);
   const linkClass = ({ isActive }) =>
     isActive
       ? "bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
@@ -33,9 +40,11 @@ const Navbar = () => {
                   </NavLink>
                 </SignedIn>
                 <SignedIn>
-                  <NavLink to="/add-job" className={linkClass}>
-                    Add Job
-                  </NavLink>
+                  {isEmployer && (
+                    <NavLink to="/add-job" className={linkClass}>
+                      Add Job
+                    </NavLink>
+                  )}
                 </SignedIn>
 
                 <SignedOut>
