@@ -1,8 +1,12 @@
 import "./login.css";
 import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const Login = () => {
+  useEffect(() => {
+    localStorage.removeItem("welcomeShown");
+  }, []);
   return (
     <div className="auth-container">
       <div className="auth-container-content">
