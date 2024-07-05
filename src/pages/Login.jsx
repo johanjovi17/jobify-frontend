@@ -13,7 +13,7 @@ const Login = () => {
           Complete Job Finder.
         </h2>
         <div className="btn-container">
-          <SignInButton mode="modal" forceRedirectUrl="/home">
+          <SignInButton mode="modal">
             <button className="auth-btn">Sign in</button>
           </SignInButton>
 
