@@ -159,7 +159,7 @@ const JobPage = ({ deleteJob, user }) => {
 
 const jobLoader = async ({ params }) => {
   try {
-    const res = await axios.get(`/api/jobs/${params.id}`);
+    const res = await axiosInstance.get(`/api/jobs/${params.id}`);
     return res.data;
   } catch (error) {
     console.error("Error loading job:", error);
