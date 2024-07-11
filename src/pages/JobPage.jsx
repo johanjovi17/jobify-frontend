@@ -18,7 +18,7 @@ const JobPage = ({ deleteJob, user }) => {
   useEffect(() => {
     const fetchMaterials = async () => {
       try {
-        const res = await axiosInstance.get(`/jobs/${id}/materials`);
+        const res = await axiosInstance.get(`api/jobs/${id}/materials`);
         setMaterials(res.data);
       } catch (error) {
         console.log("Error fetching materials:", error);
