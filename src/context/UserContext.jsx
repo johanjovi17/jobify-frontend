@@ -29,7 +29,7 @@ export const UserContextProvider = ({ children }) => {
   }
   async function registerUser(username, email, password, role, navigate) {
     try {
-      const { data } = await axios.post(`${server}/api/users/register`, {
+      const { data } = await axios.post(`${server}api/users/register`, {
         username,
         email,
         password,
