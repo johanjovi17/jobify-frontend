@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../services/authService";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 const Logout = () => {
   const navigate = useNavigate();

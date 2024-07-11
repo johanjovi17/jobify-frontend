@@ -1,0 +1,49 @@
+.course-material-viewer {
+  margin-bottom: 20px;
+}
+
+.video-container {
+  background-color: #fff;
+}
+
+.course-material-viewer h2 {
+  font-size: 24px;
+}
+
+.course-material-viewer p {
+  font-size: 16px;
+}
+
+.course-material-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-material-form .form-group {
+  margin-bottom: 15px;
+}
+
+.course-material-form .form-group label {
+  font-weight: bold;
+}
+
+.course-material-form .form-group input,
+.course-material-form .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.course-material-form button {
+  padding: 10px;
+  background-color: #4338ca;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.course-material-form button:hover {
+  background-color: #190f88;
+}

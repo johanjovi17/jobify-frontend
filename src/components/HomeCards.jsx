@@ -1,8 +1,17 @@
 import React from "react";
 import Card from "./Card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
-const HomeCards = () => {
+const HomeCards = ({ user }) => {
+  const navigate = useNavigate();
+  const onClickHandler = () => {
+    if (user.role === "employer") {
+      navigate("/add-job");
+    } else {
+      toast.error("You are not an employer!");
+    }
+  };
   return (
     <section className="py-4">
       <div className="container-xl lg:container m-auto">
@@ -25,7 +34,7 @@ const HomeCards = () => {
               List your job to find the perfect developer for the role
             </p>
             <Link
-              to="/add-job"
+              onClick={onClickHandler}
               className="inline-block bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-600"
             >
               Add Job

@@ -1,6 +1,6 @@
 import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 const EditJobPage = ({ updateJobSubmit }) => {
   const job = useLoaderData();

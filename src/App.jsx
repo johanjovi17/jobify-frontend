@@ -7,11 +7,13 @@ import AddJobPage from "./pages/AddJobPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import EditJobPage from "./pages/EditJobPage";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import axiosInstance from "./services/authInstance";
-//clerk imports
-import { SignedIn, RedirectToSignIn, SignedOut } from "@clerk/clerk-react";
+import EditProfile from "./pages/EditProfile";
+//new import statements
+import { UserData } from "./context/UserContext";
 
-//react router components
 import {
   Route,
   createBrowserRouter,
@@ -20,6 +22,8 @@ import {
 } from "react-router-dom";
 
 const App = () => {
+  const { isAuth, user } = UserData();
+
   //add job
   const addJob = async (newJob) => {
     try {
@@ -47,7 +51,7 @@ const App = () => {
   // update job
   const updateJob = async (job) => {
     try {
-      const res = await axiosInstance.put(`/jobs/${job.id}`, job, {
+      const res = await axiosInstance.put(`/api/jobs/${job.id}`, job, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -63,48 +67,43 @@ const App = () => {
     createRoutesFromElements(
       <>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Login />} />
+          <Route
+            index
+            element={isAuth ? <HomePage user={user} /> : <Login />}
+          />
 
-          <Route path="/home" element={<HomePage />} />
-          <Route path="jobs" element={<JobsPage />} />
+          <Route
+            path="/profile"
+            element={isAuth ? <Profile user={user} /> : <Login />}
+          />
+          <Route
+            path="/login"
+            element={isAuth ? <HomePage isAuth={isAuth} /> : <Login />}
+          />
+          <Route
+            path="/register"
+            element={isAuth ? <HomePage isAuth={isAuth} /> : <Register />}
+          />
+          <Route path="jobs" element={isAuth ? <JobsPage /> : <Login />} />
           <Route
             path="add-job"
-            element={
-              <>
-                <SignedIn>
-                  <AddJobPage addJobSubmit={addJob} />
-                </SignedIn>
-                <SignedOut>
-                  <RedirectToSignIn />
-                </SignedOut>
-              </>
-            }
+            element={isAuth ? <AddJobPage addJobSubmit={addJob} /> : <Login />}
+          />
+          <Route
+            path="/edit-profile/:id"
+            element={isAuth ? <EditProfile user={user} /> : <Login />}
           />
           <Route
             path="jobs/:id"
             element={
-              <>
-                <SignedIn>
-                  <JobPage deleteJob={deleteJob} />
-                </SignedIn>
-                <SignedOut>
-                  <RedirectToSignIn />
-                </SignedOut>
-              </>
+              isAuth ? <JobPage deleteJob={deleteJob} user={user} /> : <Login />
             }
             loader={jobLoader}
           />
           <Route
             path="edit-job/:id"
             element={
-              <>
-                <SignedIn>
-                  <EditJobPage updateJobSubmit={updateJob} />
-                </SignedIn>
-                <SignedOut>
-                  <RedirectToSignIn />
-                </SignedOut>
-              </>
+              isAuth ? <EditJobPage updateJobSubmit={updateJob} /> : <Login />
             }
             loader={jobLoader}
           />
@@ -115,7 +114,11 @@ const App = () => {
     )
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 };
 
 export default App;
