@@ -63,7 +63,7 @@ const Register = () => {
               />
               <button
                 type="button"
-                className="absolute right-0 inset-y-0 flex items-center px-3 text-gray-600 focus:outline-none"
+                className="absolute right-0 y-0 flex items-center px-3 text-gray-600 focus:outline-none"
                 onClick={togglePasswordVisibility}
               >
                 {showPassword ? <BsEyeSlash size={20} /> : <BsEye size={20} />}

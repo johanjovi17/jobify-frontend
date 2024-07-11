@@ -1,11 +1,9 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
-const server = "http://localhost:5000";
-// const navigate = useNavigate();
+const server = import.meta.env.VITE_SERVER;
 
 export const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState([]);
