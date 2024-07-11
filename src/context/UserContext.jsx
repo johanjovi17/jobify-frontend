@@ -11,7 +11,7 @@ export const UserContextProvider = ({ children }) => {
 
   async function loginUser(email, password, navigate) {
     try {
-      const { data } = await axios.post(`${server}/users/login`, {
+      const { data } = await axios.post(`${server}/api/users/login`, {
         email,
         password,
       });
