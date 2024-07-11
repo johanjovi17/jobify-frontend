@@ -41,7 +41,6 @@ const EditProfile = ({ user }) => {
         },
       });
       setUser(res.data);
-      console.log(res.data);
       toast.success("User updated successfully");
       setLoading(false);
       navigate("/profile");
