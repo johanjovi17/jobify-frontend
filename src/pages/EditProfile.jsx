@@ -35,13 +35,12 @@ const EditProfile = ({ user }) => {
     };
 
     try {
-      const res = await axiosInstance.post("/users/profile", updatedUser, {
+      const res = await axiosInstance.post("api/users/profile", updatedUser, {
         headers: {
           "Content-Type": "application/json",
         },
       });
       setUser(res.data);
-      console.log(res.data);
       toast.success("User updated successfully");
       setLoading(false);
       navigate("/profile");
