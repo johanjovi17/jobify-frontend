@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
-const server = "http://localhost:5000";
+const server = "https://jobify-backend-1.onrender.com/api";
 // const navigate = useNavigate();
 
 export const UserContextProvider = ({ children }) => {
