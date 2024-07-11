@@ -27,7 +27,7 @@ const App = () => {
   //add job
   const addJob = async (newJob) => {
     try {
-      const res = await axiosInstance.post("/jobs", newJob, {
+      const res = await axiosInstance.post("/api/jobs", newJob, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -41,7 +41,7 @@ const App = () => {
   // delete job
   const deleteJob = async (id) => {
     try {
-      const res = await axiosInstance.delete(`/jobs/${id}`);
+      const res = await axiosInstance.delete(`/api/jobs/${id}`);
       return res.data;
     } catch (error) {
       console.error("Error deleting job:", error);
